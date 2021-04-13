@@ -11,22 +11,31 @@ void memory()
 	unsigned short int *nums;
 	char ans; //answer
 	
-	nums = calloc(level+1, sizeof(unsigned short int)); //nums[level+1];
+	nums = calloc(level, sizeof(unsigned short int)); //nums[level];
 	srand(time(NULL));
 
-	nums[0] = rand()%100+1; //random number between 1 - 100
+	nums[0] = rand()%5+1; //random number between 1 - 5
 	printf("First number: %d\n", nums[0]);
 	getchar();
 
 	while(lifes > 0)
 	{
 		clscr();
+		printf("Lifes: %d\n", lifes);
+		
+		nums[level] = rand()%5+1;
+		printf("is %d equal to %d number(s) ago?\n", nums[level], level);
+		printf("> "); scanf(" %c", &ans);
 
-		nums[level+1] = rand()%100+1;
-		printf("is that number equal to %d number(s) ago?", level);
-		ans = getchar();
+		if((ans == 's' && nums[0] != nums[level]) || (ans == 'n' && nums[0] == nums[level]))
+			lifes--;
+
+		for(unsigned short int i = 0; i < level; i++)
+			nums[i] = nums[i+1];
+		
 	}
-
+	
+	free(nums);
 }
 
 int main()
