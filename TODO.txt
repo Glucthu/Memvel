@@ -1,17 +1,2 @@
-· levels: 1-10
-
-· if (level == 1)
-  	tt
-· if (level == 5)
-  	tfffft # 'f' = 4
-· if (level == n)
-  	tff ... ft # where the last 't' is equal to n +1
-
-· size of vector = level + 1
-
-
-const lifes = 3
-
-
-
-
+· Make level system
+· Make point system
