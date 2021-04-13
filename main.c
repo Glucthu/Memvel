@@ -1,40 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct {
-  int *array;
-  size_t used;
-  size_t size;
-} vector;
-
-void initVector(vector *a, size_t initialSize) {
-  a->array = malloc(initialSize * sizeof(int));
-  a->used = 0;
-  a->size = initialSize;
-}
-
-void insertVector(vector *a, int element) {
-  if (a->used == a->size) {
-    a->size *= 2;
-    a->array = realloc(a->array, a->size * sizeof(int));
-  }
-  a->array[a->used++] = element;
-}
-
-void freeVector(vector *a) {
-  free(a->array);
-  a->array = NULL;
-  a->used = a->size = 0;
-}
+#include <stdbool.h>
 
 int main()
 {
-	vector nums;
-	int i;
+	unsigned short *vector;
+	unsigned short size = 0;
+	bool nextn = true;
+	char ans;
 
-	initVector(&nums, 1);  // initially 5 elements
-	//for (i = 0; i < 100; i++)
-	//  insertVector(&nums, i);  // automatically resizes as necessary
-	freeVector(&nums);
+	vector = calloc(size, sizeof(unsigned short));
+	printf("insert elements\n");
+	
+	printf("\n");
+
+	int aux;
+	while(nextn)
+	{
+		size++;
+		vector = realloc(vector, size * sizeof(int));
+		printf("> "); 
+		scanf("%d", &vector[size-1]);
+		printf("Do you want another number?\n");
+
+		printf("> "); 
+		scanf(" %c", &ans);
+
+		if(ans != 's')
+			nextn = false;
+	}
+	for(unsigned short i = 0; i < size; i++)
+		printf("%d\n", vector[i]);
+
+	free(vector);
 	return 0;
 }
