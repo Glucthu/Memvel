@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-#define clscr() printf("\e[1;1H\e[2J")
+#define clrscr() printf("\e[1;1H\e[2J")
 
 void memory()
 {
@@ -18,12 +18,13 @@ void memory()
 	srand(time(NULL));
 
 	nums[0] = rand()%max_rnum+1; //random number between 1 - 5
+	clrscr();
 	printf("First number: %d\n", nums[0]);
 	getchar();
 
 	while(lifes > 0)
 	{
-		clscr();
+		clrscr();
 		printf("Lifes: %d\n", lifes);
 		printf("Points: %d\n", points);
 		printf("\n");
