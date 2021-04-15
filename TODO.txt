@@ -1,2 +1,0 @@
-· Make level system
-· Make point system

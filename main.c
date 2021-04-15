@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #define clscr() printf("\e[1;1H\e[2J")
 
@@ -9,13 +10,14 @@ void memory()
 	unsigned short int level = 1; 
 	unsigned short int lifes = 3;
 	unsigned short int points = 0;
+	unsigned short int max_rnum = 5; //max random number
 	unsigned short int *nums;
 	char ans; //answer
 	
 	nums = calloc(level, sizeof(unsigned short int)); //nums[level];
 	srand(time(NULL));
 
-	nums[0] = rand()%5+1; //random number between 1 - 5
+	nums[0] = rand()%max_rnum+1; //random number between 1 - 5
 	printf("First number: %d\n", nums[0]);
 	getchar();
 
@@ -26,7 +28,7 @@ void memory()
 		printf("Points: %d\n", points);
 		printf("\n");
 
-		nums[level] = rand()%5+1;
+		nums[level] = rand()%max_rnum+1;
 		printf("is %d equal to %d number(s) ago?\n", nums[level], level);
 		printf("> "); scanf(" %c", &ans);
 
@@ -38,10 +40,10 @@ void memory()
 		for(unsigned short int i = 0; i < level; i++)
 			nums[i] = nums[i+1];
 
-		if(points % 3 == 0)
+		if(points % (int)pow(level * 1.7, 2) == 0)
 		{
 			level++;
-			max_num *= ;
+			max_rnum *= 1.3;
 		}
 	}
 	
