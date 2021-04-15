@@ -4,6 +4,8 @@
 
 int main()
 {
+	/* Vector system
+	
 	unsigned short *vector;
 	unsigned short size = 0;
 	bool nextn = true;
@@ -33,5 +35,19 @@ int main()
 		printf("%d\n", vector[i]);
 
 	free(vector);
+	
+	*/
+
+	
+	/* integer times float test
+	
+	unsigned short int a = 3;
+
+	a *= 0.5f;
+
+	printf("%d", a);
+	
+	*/
+
 	return 0;
 }
